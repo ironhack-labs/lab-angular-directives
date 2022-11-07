@@ -1,10 +1,10 @@
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
-# LAB | Angular Intro
+# LAB | Angular Directives
 
 ## Introduction
 
-In this lab, you'll continue exploring the basics of how to use Angular and will set the foundation for bigger, more complicated projects.
+In this lab, you'll continue exploring directives `ngFor`, `ngClass`, `ngIf` and `ngStyle`.
 
 Let's begin!
 
@@ -40,29 +40,22 @@ Let's begin!
 
 ## Instructions
 
-### Iteration 1 | Get HTML template
+Create a simple todo-list application using Angular. Your application must:
 
-For this lab, you'll have to download the following HTML template ([asperion-html5-template](https://github.com/ironhack-labs/lesson-code-java-lab-7.02-template)).
+1. **Iteration 1** | Allow users to create new todos in the UI
 
-### Iteration 2 | Create a new Angular project
+2. **Iteration 2** | Allow users to mark todos as complete changing its color to green
 
-Pretty straight forward. If needed, reference the Student Portal or class materials.
+3. **Iteration 3** | Allow users to mark todos as "postpone" which will temporarily remove them from the list
 
-### Iteration 3 | Setup
+4. **Iteration 4** | Allow users to delete todos from the UI
 
-In this iteration, you'll import all the CSS and JS from the downloaded template and add it globally in your project.
+5. **Iteration 5** | Add a clean button that will remove the completed todos
 
-### Iteration 4 | HTML to components
+6. **Iteration 6** | Add a restore button that will bring back all the postponed todos
 
-Next, separate the content of the `index.html` into different components and replicate the page on your Angular project (ignore the navigation links and functionalities).
+7. **Bonus** - **Iteration 7** | Add an edit option if you like or work on the styling
 
-### Iteration 5 | Events (Alert message)
-
-Using event binding override the "more" button and display an alert message when the button is clicked.
-
-### Iteration 6 | Events (Warning message)
-
-When you try to copy any of the titles, display a warning message.
 
 <br>
 
