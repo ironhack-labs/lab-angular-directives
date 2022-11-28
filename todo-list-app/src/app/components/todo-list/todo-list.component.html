@@ -1,1 +1,25 @@
-<p>todo-list works!</p>
+<h1>To-do</h1>
+<label for="toDoTaskName">What do you need to do?</label>
+<input 
+    id = "toDoTaskName"
+    type="text" 
+    (keyup.enter)="addToDo()" 
+    placeholder="To do task"
+    [(ngModel)]="toDoName">
+
+<label for="toDoTime">How long should it take? (minutes)</label>
+<input
+    id="toDoTime"
+    type="number" 
+    (keyup.enter)="addToDo()" 
+    [(ngModel)]="toDoTime">
+
+<button (click)="addToDo()">Add task</button>
+
+<ul>
+    <li
+        *ngFor="let task of toDoList; let i = index"
+    >
+        {{i+1}} - {{task.name}} ({{task.time}} minutes) 
+    </li>
+</ul>
