@@ -3,3 +3,8 @@
     color:green;
     text-decoration: line-through;
 }
+
+.red{
+    color:red;
+    font-weight: bold;
+}

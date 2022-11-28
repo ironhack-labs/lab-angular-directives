@@ -8,6 +8,7 @@ import { toDoItem } from "/IRONHACK/labs/lab-angular-todo/todo/src/app/MODELS/to
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit{
+[x: string]: any;
   toDoList: toDoItem[] =[];
   toDoName: string;
   toDoIsDone: boolean;
@@ -36,18 +37,17 @@ export class ListComponent implements OnInit{
     else{
       task.isDone = false;
     }
-   
-    
-  }
-  postponeTask(task: { isPostponed: boolean}){
+   }
+   postponeTask(task: { isPostponed: boolean; }): void{
     
     if(task.isPostponed === false){
       task.isPostponed = true;
+    
     }else{
       task.isPostponed = false;
     }
-    
-  }
+   }
+  
 
   ngOnInit(): void {}
 }

@@ -6,15 +6,18 @@
   <div>
     <li
       *ngFor="let item of toDoList; let i = index"
-      [ngClass]="{ green: item.isDone === true }"
+      [ngClass]="{ green: item.isDone === true && item.isPostponed === false }"
       (click)="updateTask(item)"
     >
       {{ i + 1 }} {{ item.name }}
-      <button (click)="postponeTask(item)">Postpone</button>
+      <p *ngIf="!item.isPostponed" (click)="postponeTask(item)">Postpone</p>
+      <p
+        *ngIf="item.isPostponed"
+        (click)="postponeTask(item)"
+        [ngClass]="{ red: item.isPostponed === true }"
+      >
+        POSTPONED
+      </p>
     </li>
-  </div>
-  <div>
-    <h2>Postponed:</h2>
-    <li></li>
   </div>
 </ul>
