@@ -1,0 +1,30 @@
+
+<div class="main-box">
+    <h1>Todos</h1>
+    <div >
+        <input type="text" [(ngModel)]="todo" (keyup.enter)="addTodo()">
+        <button [disabled]="todo === ''"  (click)="addTodo()">Add Todo</button>
+        <button [disabled]="todoList.length === 0" (click)="removeCompleted()">Remove Completed</button>
+        <button [disabled]="todoList.length === 0" (click)="restorePostponed()">Restore Postponed</button>
+        <button [disabled]="todoList.length === 0" (click)="removeAll()">Remove All</button>
+    </div>  
+    
+    
+    <ul *ngFor="let todo of todoList; let i = index">
+        <li *ngIf="!todo.isPostponed" [ngClass]="{completed : todo.isCompleted}">
+            {{todo.todo}} 
+            <div>
+                <button (click)="completeTodo(i)" [ngStyle]="{'background-color': 'white', color: 'green'}">✓</button>
+                <button (click)="removeTodo(i)" [ngStyle]="{color: 'red'}">X</button>
+                <button (click)="postponeTodo(i)">Postpone</button>
+                <button (click)="getIndex(i)">Edit</button>
+            </div>
+        </li>
+    </ul>
+
+    <div *ngIf="editing">
+        <input type="text" [(ngModel)]="edited" (keyup.enter)="editTodo(index)">
+    </div>
+
+</div>
+
