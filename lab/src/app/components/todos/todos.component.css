@@ -1,0 +1,49 @@
+.input-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+  cursor: pointer;
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+  cursor: pointer;
+}
+
+.card {
+  all: unset;
+  border-radius: 4px;
+  border: 1px solid red;
+  background-color: #fafafa;
+  height: 40px;
+  width: 200px;
+  margin: 0 8px 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  line-height: 24px;
+}
+
+.card.complete {
+  background-color: green;
+}
+
+.card-displaying {
+  display: none;
+}
+
+.card-container :hover {
+  /* transform: translateY(-1px); */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+}
