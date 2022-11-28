@@ -11,23 +11,41 @@ export class ListComponent implements OnInit{
   toDoList: toDoItem[] =[];
   toDoName: string;
   toDoIsDone: boolean;
+  toDoIsPostponed: boolean;
 
   constructor(){
     this.toDoName = '';
     this.toDoIsDone = false;
-    this.toDoList.push( new toDoItem("Study", false));
+    this.toDoIsPostponed = false;
+    this.toDoList.push( new toDoItem("Study", false, false));
     
 
   }
 
   addItem(): void{
-    const newTask = new toDoItem(this.toDoName, this.toDoIsDone);
+    const newTask = new toDoItem(this.toDoName, this.toDoIsDone, this.toDoIsPostponed);
     this.toDoList.push(newTask);
     this.toDoName = '';
     this.toDoIsDone = false;
+    this.toDoIsPostponed = false;
   }
   updateTask(task: { isDone: boolean; }): void{
-    task.isDone = true;
+    if(task.isDone === false){
+      task.isDone = true;
+    }
+    else{
+      task.isDone = false;
+    }
+   
+    
+  }
+  postponeTask(task: { isPostponed: boolean}){
+    
+    if(task.isPostponed === false){
+      task.isPostponed = true;
+    }else{
+      task.isPostponed = false;
+    }
     
   }
 

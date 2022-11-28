@@ -3,11 +3,18 @@
 <button (click)="addItem()">Add</button>
 
 <ul>
-  <li
-    *ngFor="let item of toDoList; let i = index"
-    [ngClass]="{ green: item.isDone === true }"
-    (click)="updateTask(item)"
-  >
-    {{ i + 1 }} {{ item.name }}
-  </li>
+  <div>
+    <li
+      *ngFor="let item of toDoList; let i = index"
+      [ngClass]="{ green: item.isDone === true }"
+      (click)="updateTask(item)"
+    >
+      {{ i + 1 }} {{ item.name }}
+      <button (click)="postponeTask(item)">Postpone</button>
+    </li>
+  </div>
+  <div>
+    <h2>Postponed:</h2>
+    <li></li>
+  </div>
 </ul>
