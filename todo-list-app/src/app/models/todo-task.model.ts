@@ -1,20 +1,30 @@
 export class ToDoTask {
-    /* In this example we are using a shortcut from Typescript to create variables without declaring them */
-    constructor(private _name: string, private _quantity: number) {}
+   
+    constructor(private _name: string, private _time: number, private _completed: boolean) {}
    
     get name(): string {
       return this._name;
     }
    
     get time(): number {
-      return this._quantity;
+      return this._time;
     }
-   
-    set time(quantity: number) {
-      this._quantity = quantity;
+
+    get completed():boolean {
+      return this._completed;
     }
    
     set name(name: string) {
       this._name = name;
     }
+
+    set time(time: number) {
+      this._time = time;
+    }
+
+    set completed(completed: boolean) {
+      this._completed = completed;
+    }
+   
+    
   }

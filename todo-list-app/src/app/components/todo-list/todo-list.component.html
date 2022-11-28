@@ -19,7 +19,8 @@
 <ul>
     <li
         *ngFor="let task of toDoList; let i = index"
+        [ngClass]="{'done' : task.completed === true}"
     >
-        {{i+1}} - {{task.name}} ({{task.time}} minutes) 
+        {{i+1}} - {{task.name}} ({{task.time}} minutes) --- Completed? ({{task.completed}})<button (click)="makeGreen(task)">Completed</button>
     </li>
 </ul>
