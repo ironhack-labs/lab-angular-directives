@@ -1,0 +1,17 @@
+<h1>ToDos List</h1>
+<label for="add-new-item">Add new ToDo</label>
+<br />
+<input type="text" [(ngModel)]="itemName">
+<button (click)="addItem()">Add</button>
+<ul>
+    <li *ngFor="let item of toDosList; let i = index" [ngClass]="{completed: item.completed === true }">
+
+        {{ i+1 }} - {{ item.name }}
+        <input type="checkbox" name="isCompleted" id="completedCheckbox" (change)="item.completed=!item.completed">
+        <label for="completedCheckbox">Completed</label>
+        <input type="checkbox" name="isCompleted" id="postponeCheckbox" (change)="postpone(i)">
+        <label for="completedCheckbox">Postpone</label>
+        <input type="checkbox" name="isCompleted" id="deleteCheckbox" (change)="delete(i)">
+        <label for="completedCheckbox">Delete</label>
+    </li>
+</ul>
