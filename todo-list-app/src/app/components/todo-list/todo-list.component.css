@@ -1,3 +1,22 @@
+* {
+    margin: auto 10px;
+}
+
+input {
+    display:block;
+}
+
+button {
+    border: none;
+}
+
+input, button {
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 .done {
     background-color: green;
 }

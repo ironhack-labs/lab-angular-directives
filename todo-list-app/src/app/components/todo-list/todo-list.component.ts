@@ -21,10 +21,14 @@ export class TodoListComponent{
   }
  
   addToDo() {
-    const task = new ToDoTask(this.toDoName, this.toDoTime, this.toDoCompleted);
-    this.toDoList.push(task);
-    this.toDoName = "";
-    this.toDoTime = 0;
+    if (this.toDoName !== "") {
+      const task = new ToDoTask(this.toDoName, this.toDoTime, this.toDoCompleted);
+      this.toDoList.push(task);
+      this.toDoName = "";
+      this.toDoTime = 0;
+    } else {
+      alert ("You're trying to add an empty task. Please type something :)")
+    }
   }
 
   makeGreen(task : {completed:boolean}) {
@@ -38,6 +42,9 @@ export class TodoListComponent{
 
   removeCompleted () {
     this.toDoList = this.toDoList.filter(item => item.completed !== true)
-    console.log(this)
+  }
+
+  retrievePosponed() {
+    console.log("yay")
   }
 }
