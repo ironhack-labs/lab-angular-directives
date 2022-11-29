@@ -1,3 +1,11 @@
+button {
+  background-color: #fcfcfc;
+}
+.input-taskContainer {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
 .input-container {
   display: flex;
   flex-wrap: wrap;
@@ -5,13 +13,28 @@
   margin: 16px 10px;
   cursor: pointer;
 }
+
+.inTask {
+  padding: 5px 10px;
+  margin: 0 10px;
+}
+.addTask {
+  padding: 5px 10px;
+  margin: 0 10px;
+  border-radius: 5px;
+  border: 1px solid #0e00aa;
+  cursor: pointer;
+}
+
 .btn-action {
   border-radius: 5px;
-  border: 1px solid #aca8a8;
+  border: 1px solid #0e00aa;
   cursor: pointer;
   margin: 5px;
+  padding: 10px 15px;
 }
-.btn-action:hover {
+.btn-action:hover,
+.addTask:hover {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
 }
 
@@ -19,40 +42,30 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 16px;
-  cursor: pointer;
 }
 
 .card {
   all: unset;
-  border-radius: 4px;
-  border: 1px solid #d9d9d9;
-  background-color: #fafafa;
+  border-radius: 10px;
+  border: 1px solid #c2c1c1;
+  background-color: #fcfcfc;
   height: 60px;
   width: 250px;
-  margin: 0 8px 16px;
-  padding: 16px;
+  margin: 5px;
+  padding: 25px 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   transition: all 0.5s ease-in-out;
   line-height: 24px;
+  box-shadow: 0 2px 5px rgb(222, 222, 222);
 }
 
 .card.complete {
   border-color: rgb(56, 177, 76);
   box-shadow: 0 2px 5px rgba(119, 173, 94);
 }
-
-.card-displaying {
-  display: none;
-}
-
-/* transform: translateY(-1px); */
-/* .card-container :hover {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
-} */
 
 .btn-container {
   display: flex;
@@ -63,7 +76,9 @@
 .btn {
   border-radius: 5px;
   margin: 3px 0;
+  padding: 5px 10px;
   cursor: pointer;
+  background-color: #fcfcfc;
 }
 .btn[value~="Done"] {
   border: 1px solid rgb(84, 183, 84);
@@ -75,13 +90,11 @@
   border: 1px solid rgb(220, 166, 67);
 }
 .btn[value~="Done"]:hover {
-  border: 1px solid rgb(84, 183, 84);
-  box-shadow: 0 0.5px 0.5px rgb(116, 215, 121);
+  box-shadow: 0 1px 1.5px rgb(116, 215, 121);
 }
 .btn[value~="Delete"]:hover {
-  border: 1px solid rgb(212, 87, 87);
-  box-shadow: 0 0.5px 0.5px rgb(233, 94, 94);
+  box-shadow: 0 1px 1.5px rgb(233, 94, 94);
 }
 .btn[value~="Postpone"]:hover {
-  box-shadow: 0 0.5px 0.5px rgb(233, 198, 56);
+  box-shadow: 0 1px 1.5px rgb(220, 166, 67);
 }

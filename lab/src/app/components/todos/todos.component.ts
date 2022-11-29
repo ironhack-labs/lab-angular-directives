@@ -19,7 +19,9 @@ export class TodosComponent {
     this.isComplete = false;
     this.doValue = 'Done';
     this.displayCard = '';
-    this.todos.push(new TodoList('papas', false));
+    // this.todos.push(new TodoList('papas', false));
+    // this.todos.push(new TodoList('asd', false));
+    // this.todos.push(new TodoList('qwe', false));
   }
 
   /* -----  Methods ---- */
