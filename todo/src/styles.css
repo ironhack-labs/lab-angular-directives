@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+html{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 .green{
     color:green;
     text-decoration: line-through;
@@ -18,6 +22,57 @@
 
 ul div li{
     list-style: none;
+    margin-bottom: 30px;
     
 }
+.delete{
+    text-transform: uppercase;
+    background-color: red;
+    border: none;
+    padding: 10px;
+    color: white;
+    font-weight: bolder;
+}
+.buttons-container{
+    margin: 30px auto;
+    display: flex;
+    gap: 30px;
+}
 
+.clean{
+    text-transform: uppercase;
+    background-color: green;
+    border: none;
+    padding: 10px;
+    color: white;
+    font-weight: bolder;
+}
+
+.restore{
+    text-transform: uppercase;
+    background-color: darkblue;
+    border: none;
+    padding: 10px;
+    color: white;
+    font-weight: bolder;
+}
+.title{
+    font-size: 100px;
+    
+}
+.addInput{
+    font-size: 20px;
+    height: 40px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+}
+.addButton{
+    font-size: 20px;
+    text-transform: uppercase;
+    background-color: darkcyan;
+    border: none;
+    padding: 10px;
+    color: white;
+    font-weight: bolder;
+    margin-bottom: 40px;
+}

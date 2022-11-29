@@ -1,11 +1,12 @@
 <div class="container">
-  <h1>To do list</h1>
+  <h1 class="title">To do list</h1>
   <input
+    class="addInput"
     type="text"
     placeholder="Add something here..."
     [(ngModel)]="toDoName"
   />
-  <button (click)="addItem()">Add</button>
+  <button class="addButton" (click)="addItem()">Add</button>
 
   <ul>
     <div>
@@ -28,10 +29,12 @@
         </p>
         <button class="delete" (click)="deleteTask(item)">Delete</button>
       </li>
-      <button (click)="cleanAll()">Clean the done Tasks</button>
-      <button (click)="restoreAll(toDoList)">
-        Restore the postponed Tasks
-      </button>
+      <div class="buttons-container">
+        <button class="clean" (click)="cleanAll()">Clean the done Tasks</button>
+        <button class="restore" (click)="restoreAll(toDoList)">
+          Restore the postponed Tasks
+        </button>
+      </div>
     </div>
   </ul>
 </div>
