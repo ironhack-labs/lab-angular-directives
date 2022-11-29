@@ -1,0 +1,56 @@
+<div class="input-taskContainer">
+  <input class="inTask" type="text" [(ngModel)]="newTodo" />
+  <button class="addTask" (click)="addTask()">Add</button>
+</div>
+<div class="input-container">
+  <button class="btn-action" (click)="clearDoneTask()">Clean done task</button>
+  <button class="btn-action" (click)="restoreTask()">
+    Restore postpone tasks
+  </button>
+</div>
+<ol class="card-container">
+  <li
+    class="card"
+    *ngFor="let item of todos; let i = index"
+    [ngClass]="{ complete: item.isDone === true }"
+  >
+    {{ i + 1 }} - {{ item.name }}
+    <div class="btn-container">
+      <input
+        class="btn"
+        type="button"
+        [value]="doValue"
+        (click)="isDoneTask(i)"
+      />
+      <input class="btn" type="button" value="Delete" (click)="deleteTask(i)" />
+      <input
+        class="btn"
+        type="button"
+        value="Postpone"
+        (click)="postponeTask(i)"
+      />
+    </div>
+  </li>
+  <li
+    class="card-displaying"
+    *ngFor="let item of postponeTodos; let i = index"
+    [ngClass]="{ complete: item.isDone === true }"
+  >
+    {{ i + 1 }} - {{ item.name }}
+    <div class="btn-container">
+      <input
+        class="btn"
+        type="button"
+        [value]="doValue"
+        (click)="isDoneTask(i)"
+      />
+      <input class="btn" type="button" value="Delete" (click)="deleteTask(i)" />
+      <input
+        class="btn"
+        type="button"
+        value="Postpone"
+        (click)="postponeTask(i)"
+      />
+    </div>
+  </li>
+</ol>
