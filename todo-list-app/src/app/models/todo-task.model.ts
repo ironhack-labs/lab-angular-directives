@@ -1,6 +1,6 @@
 export class ToDoTask {
    
-    constructor(private _name: string, private _time: number, private _completed: boolean) {}
+    constructor(private _name: string, private _time: number, private _completed: boolean, private _postponed: boolean) {}
    
     get name(): string {
       return this._name;
@@ -13,6 +13,10 @@ export class ToDoTask {
     get completed():boolean {
       return this._completed;
     }
+
+    get postponed():boolean {
+      return this._postponed;
+    }
    
     set name(name: string) {
       this._name = name;
@@ -24,6 +28,10 @@ export class ToDoTask {
 
     set completed(completed: boolean) {
       this._completed = completed;
+    }
+
+    set postponed(postponed: boolean) {
+      this._postponed = postponed;
     }
     
   }

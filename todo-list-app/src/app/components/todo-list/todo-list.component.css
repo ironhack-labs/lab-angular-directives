@@ -1,13 +1,29 @@
 * {
     margin: auto 10px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 input {
     display:block;
+    border: 1px solid grey;
 }
 
 button {
     border: none;
+}
+
+li {
+    padding: 0 10px;
+    border-radius: 8px;
+    list-style-type: none;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 0;
+    margin: 0;
 }
 
 input, button {
@@ -18,5 +34,5 @@ input, button {
 }
 
 .done {
-    background-color: green;
+    background-color: rgb(144, 186, 144);
 }
