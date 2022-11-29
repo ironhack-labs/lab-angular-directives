@@ -48,6 +48,11 @@ export class ListComponent implements OnInit{
     }
    }
   
+   deleteTask(task: any): void{
+    console.log(task);
+    const indexTask=this.toDoList.indexOf(task);
+    this.toDoList.splice(indexTask, 1)
+   }
 
   ngOnInit(): void {}
 }

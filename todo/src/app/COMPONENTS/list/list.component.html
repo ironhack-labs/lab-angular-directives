@@ -1,23 +1,33 @@
-<h1>To do list</h1>
-<input type="text" placeholder="Add something here..." [(ngModel)]="toDoName" />
-<button (click)="addItem()">Add</button>
+<div class="container">
+  <h1>To do list</h1>
+  <input
+    type="text"
+    placeholder="Add something here..."
+    [(ngModel)]="toDoName"
+  />
+  <button (click)="addItem()">Add</button>
 
-<ul>
-  <div>
-    <li
-      *ngFor="let item of toDoList; let i = index"
-      [ngClass]="{ green: item.isDone === true && item.isPostponed === false }"
-      (click)="updateTask(item)"
-    >
-      {{ i + 1 }} {{ item.name }}
-      <p *ngIf="!item.isPostponed" (click)="postponeTask(item)">Postpone</p>
-      <p
-        *ngIf="item.isPostponed"
-        (click)="postponeTask(item)"
-        [ngClass]="{ red: item.isPostponed === true }"
+  <ul>
+    <div>
+      <li
+        *ngFor="let item of toDoList; let i = index"
+        [ngClass]="{
+          green: item.isDone === true && item.isPostponed === false,
+          red: item.isPostponed
+        }"
+        (click)="updateTask(item)"
       >
-        POSTPONED
-      </p>
-    </li>
-  </div>
-</ul>
+        {{ i + 1 }} {{ item.name }}
+        <p *ngIf="!item.isPostponed" (click)="postponeTask(item)">Postpone</p>
+        <p
+          *ngIf="item.isPostponed"
+          (click)="postponeTask(item)"
+          [ngClass]="{ red: item.isPostponed === true }"
+        >
+          POSTPONED
+        </p>
+        <button (click)="deleteTask(item)">Delete</button>
+      </li>
+    </div>
+  </ul>
+</div>

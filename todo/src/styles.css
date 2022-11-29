@@ -7,4 +7,16 @@
 .red{
     color:red;
     font-weight: bold;
+    text-align: right;
+    
+}
+.container{
+    position: absolute;
+    top: 50px;
+    left: 300px;
+}
+
+ul div li{
+    list-style: none;
+    
 }
