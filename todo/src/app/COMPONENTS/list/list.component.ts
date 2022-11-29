@@ -49,7 +49,7 @@ export class ListComponent implements OnInit{
    }
   
    deleteTask(task: any): void{
-    console.log(task);
+    
     const indexTask=this.toDoList.indexOf(task);
     this.toDoList.splice(indexTask, 1)
    }
@@ -58,6 +58,17 @@ export class ListComponent implements OnInit{
       if(task.isDone === true){
         const indexTask=this.toDoList.indexOf(task);
         this.toDoList.splice(indexTask, 1)
+      }
+    }
+   }
+
+   restoreAll(list: any): void{
+    
+    for(let task of list){
+      console.log(task)
+      if(task.isPostponed === true){
+        task.isPostponed = false;
+        task.isDone = false;
       }
     }
    }
