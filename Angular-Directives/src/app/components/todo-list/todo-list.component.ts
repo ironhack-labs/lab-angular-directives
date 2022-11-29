@@ -11,10 +11,12 @@ export class TodoListComponent implements OnInit {
   toDosList: ToDoItem[] = []
   itemName: string;
   isCompleted: boolean;
-  savedItems: ToDoItem[] = []
+  savedItems: ToDoItem[] = [];
+  editName: string;
 
   constructor() {
     this.itemName = '';
+    this.editName = ''
     this.isCompleted = false;
     this.toDosList.push(new ToDoItem("Clean the kitchen", false));
     this.toDosList.push(new ToDoItem("Buy food", false));
@@ -41,20 +43,25 @@ export class TodoListComponent implements OnInit {
   postpone(i: number) {
     this.savedItems.push(new ToDoItem(this.toDosList[i].name, this.toDosList[i].completed))
     this.toDosList.splice(i, 1)
+    console.log('New postponed', this.savedItems)
   }
 
   delete(i: number) {
     this.toDosList.splice(i, 1)
   }
 
+  //Something weird is happening here :(
   retrievePostponed() {
-    this.savedItems.forEach((el) => {
+    this.savedItems.map((el, i) => {
       this.toDosList.push(new ToDoItem(el.name, el.completed))
+      this.savedItems.splice(i, 1)
+      console.log('FullList', this.savedItems)
     })
   }
+
+  editToDo(i: number) {
+    this.toDosList.splice(i, 1)
+    this.toDosList.splice(i, 0, new ToDoItem(`${this.editName}`, false))
+    this.editName = ''
+  }
 }
-
-
-
-
-

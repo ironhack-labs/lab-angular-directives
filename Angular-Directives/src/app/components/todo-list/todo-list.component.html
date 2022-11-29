@@ -9,10 +9,12 @@
         {{ i+1 }} - {{ item.name }}
         <input type="checkbox" name="isCompleted" id="completedCheckbox" (change)="item.completed=!item.completed">
         <label for="completedCheckbox">Completed</label>
-        <input type="checkbox" name="isCompleted" id="postponeCheckbox" (change)="postpone(i)">
+        <input type="checkbox" name="postpone" id="postponeCheckbox" (change)="postpone(i)">
         <label for="completedCheckbox">Postpone</label>
-        <input type="checkbox" name="isCompleted" id="deleteCheckbox" (change)="delete(i)">
+        <input type="checkbox" name="delete" id="deleteCheckbox" (change)="delete(i)">
         <label for="completedCheckbox">Delete</label>
+        <input type="text" [(ngModel)]="editName">
+        <button (click)=" editToDo(i)">Edit</button>
     </li>
 </ul>
 
