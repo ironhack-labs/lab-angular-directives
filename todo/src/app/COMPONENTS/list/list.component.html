@@ -26,9 +26,9 @@
         >
           POSTPONED
         </p>
-        <button (click)="deleteTask(item)">Delete</button>
+        <button class="delete" (click)="deleteTask(item)">Delete</button>
       </li>
-      <button (click)="cleanAll(toDoList)">Clean the done Tasks</button>
+      <button (click)="cleanAll()">Clean the done Tasks</button>
       <button (click)="restoreAll(toDoList)">
         Restore the postponed Tasks
       </button>
