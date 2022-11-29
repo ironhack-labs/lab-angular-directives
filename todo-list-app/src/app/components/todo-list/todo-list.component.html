@@ -25,7 +25,7 @@
     >
         {{i+1}}. <b>{{task.name}}</b>{{task.time}} mins
         
-        <button (click)="postpone(i, task)">Postpone</button>
+        <button (click)="postpone(i)">Postpone</button>
         <button (click)="makeGreen(task)">Mask as completed</button>
         <button (click)="remove(task)">Remove</button>
 

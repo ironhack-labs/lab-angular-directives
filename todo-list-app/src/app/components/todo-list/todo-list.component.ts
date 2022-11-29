@@ -12,7 +12,6 @@ export class TodoListComponent{
   toDoName: string;
   toDoTime: number;
   toDoCompleted: boolean;
-  toDoPostponed: boolean;
  
   ngOnInit(): void {}
  
@@ -20,12 +19,11 @@ export class TodoListComponent{
     this.toDoName = "";
     this.toDoTime = 0;
     this.toDoCompleted = false;
-    this.toDoPostponed = false;
   }
  
   addToDo() {
     if (this.toDoName !== "") {
-      const task = new ToDoTask(this.toDoName, this.toDoTime, this.toDoCompleted, this.toDoPostponed);
+      const task = new ToDoTask(this.toDoName, this.toDoTime, this.toDoCompleted);
       this.toDoList.push(task);
       this.toDoName = "";
       this.toDoTime = 0;
@@ -38,9 +36,8 @@ export class TodoListComponent{
     task.completed === false? task.completed = true : task.completed = false;
   }
 
-  remove(task : {name:string}) {
-    //This removes all tasks with the same name, it would be good to use a loop to remove just the first ocurrence, some id/idx system, etc to improve this functionality
-    this.toDoList = this.toDoList.filter(item => item.name !== task.name)
+  remove(task : ToDoTask) {
+    this.toDoList = this.toDoList.filter(item => item !== task)
   }
 
   removeCompleted() {
@@ -54,11 +51,7 @@ export class TodoListComponent{
     this.toDoPostponedList = []
   }
 
-  postpone(index:number, task : ToDoTask) {
-    // task.postponed === false? task.postponed = true : task.postponed = false;
-    // if (task.postponed === true) {
+  postpone(index:number) {
       this.toDoPostponedList.push(this.toDoList.splice(index,1)[0])
-    // }
-    console.log(this.toDoPostponedList)
   }
 }
