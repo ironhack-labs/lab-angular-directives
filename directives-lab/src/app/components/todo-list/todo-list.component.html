@@ -3,13 +3,13 @@
 
 <label for="add-new-todo">Add new todo</label>
 <br />
-<input type="text" (keydown.enter)="addTodo()" [(ngModel)]="todoName" />
+<input type="text" (keydown.enter)="addTodo()" [(ngModel)]="todoName"/>
 
 <!-- Iteration 1 | Allow users to create new todos in the UI -->
 <button [disabled]="todoName === ''" (click)="addTodo()" (keyup.enter)="addTodo()">Add todo</button>
 
 <!-- Iteration 4 | Allow users to delete todos from the UI -->
-<button (click)="deleteTodos()">Delete all</button>
+<button (click)="deleteAll()">Delete all</button>
 
 <!-- Iteration 5 | Add a clean button that will remove the completed todos -->
 <button (click)="removeCompleted()">Clean</button>
@@ -19,19 +19,23 @@
 
 
 <ul>
-  <li 
-  *ngFor="let item of todoList; let i = index"
-  [ngClass]="{'green': item.isCompleted === true}"
-  [ngClass]="{'none': item.isPostponed === true}">
+  <div *ngFor="let item of todoList; let i = index">
+    <li 
+    [ngClass]="{'green': item.isCompleted === true}"
+    *ngIf="item.isPostponed === false"
+    >
 
-  <input type="checkbox" [(ngModel)]="item.isSelected" > 
-  {{ item.todoName }}
+      <input type="checkbox" [(ngModel)]="item.isSelected" > 
+      {{ item.todoName }}
 
-  <!-- Iteration 2 | Allow users to mark todos as complete changing its color to green -->  
-  <button (click)="isCompleted(i)" [(ngModel)]="item.isCompleted">Completed</button>
-  
-  <!-- Iteration 3 | Allow users to mark todos as "postpone" which will temporarily remove them from the list -->
-  <button (click)="isPostponed(i)">Postpone</button>
+      <!-- Iteration 2 | Allow users to mark todos as complete changing its color to green -->  
+      <button (click)="isCompleted(i)" [(ngModel)]="item.isCompleted">Completed</button>
+      
+      <!-- Iteration 3 | Allow users to mark todos as "postpone" which will temporarily remove them from the list -->
+      <button (click)="isPostponed(i)" [(ngModel)]="item.isPostponed">Postpone</button>
 
-  </li>
+      <!-- Iteration 4 | Allow users to delete todos from the UI -->
+      <button (click)="delete(i)">Delete</button>
+    </li>
+  </div>
 </ul>
