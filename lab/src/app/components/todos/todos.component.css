@@ -2,9 +2,19 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 16px;
+  margin: 16px 10px;
   cursor: pointer;
 }
+.btn-action {
+  border-radius: 5px;
+  border: 1px solid #aca8a8;
+  cursor: pointer;
+  margin: 5px;
+}
+.btn-action:hover {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+}
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -16,10 +26,10 @@
 .card {
   all: unset;
   border-radius: 4px;
-  border: 1px solid red;
+  border: 1px solid #d9d9d9;
   background-color: #fafafa;
-  height: 40px;
-  width: 200px;
+  height: 60px;
+  width: 250px;
   margin: 0 8px 16px;
   padding: 16px;
   display: flex;
@@ -31,19 +41,47 @@
 }
 
 .card.complete {
-  background-color: green;
+  border-color: rgb(56, 177, 76);
+  box-shadow: 0 2px 5px rgba(119, 173, 94);
 }
 
 .card-displaying {
   display: none;
 }
 
-.card-container :hover {
-  /* transform: translateY(-1px); */
+/* transform: translateY(-1px); */
+/* .card-container :hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
-}
+} */
 
 .btn-container {
   display: flex;
   flex-direction: column;
+  box-shadow: none;
+}
+
+.btn {
+  border-radius: 5px;
+  margin: 3px 0;
+  cursor: pointer;
+}
+.btn[value~="Done"] {
+  border: 1px solid rgb(84, 183, 84);
+}
+.btn[value~="Delete"] {
+  border: 1px solid rgb(212, 87, 87);
+}
+.btn[value~="Postpone"] {
+  border: 1px solid rgb(220, 166, 67);
+}
+.btn[value~="Done"]:hover {
+  border: 1px solid rgb(84, 183, 84);
+  box-shadow: 0 0.5px 0.5px rgb(116, 215, 121);
+}
+.btn[value~="Delete"]:hover {
+  border: 1px solid rgb(212, 87, 87);
+  box-shadow: 0 0.5px 0.5px rgb(233, 94, 94);
+}
+.btn[value~="Postpone"]:hover {
+  box-shadow: 0 0.5px 0.5px rgb(233, 198, 56);
 }

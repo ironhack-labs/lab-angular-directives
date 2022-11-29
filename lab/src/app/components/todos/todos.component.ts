@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-// import { CommonModule } from '@angular/common';
 import { TodoList } from 'src/models/todo-list.modal';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-todos',
@@ -14,15 +12,14 @@ export class TodosComponent {
   newTodo: string;
   isComplete: boolean;
   doValue: string;
-  chivato: boolean;
   displayCard: string;
 
   constructor() {
     this.newTodo = '';
     this.isComplete = false;
     this.doValue = 'Done';
-    this.chivato = true;
     this.displayCard = '';
+    this.todos.push(new TodoList('papas', false));
   }
 
   /* -----  Methods ---- */
@@ -44,10 +41,8 @@ export class TodosComponent {
     this.isComplete = !this.isComplete;
     let task = this.todos[i];
     if (this.isComplete) {
-      // this.doValue = 'Undo';
       task.isDone = true;
     } else {
-      // this.doValue = 'Done';
       task.isDone = false;
     }
   }
@@ -72,6 +67,5 @@ export class TodosComponent {
     });
     this.todos = [];
     this.todos = newArr;
-    console.log(newArr);
   }
 }

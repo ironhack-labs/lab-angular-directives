@@ -3,8 +3,10 @@
   <button (click)="addTask()">Add</button>
 </div>
 <div class="input-container">
-  <button (click)="clearDoneTask()">Clean done task</button>
-  <button (click)="restoreTask()">Restore postpone tasks</button>
+  <button class="btn-action" (click)="clearDoneTask()">Clean done task</button>
+  <button class="btn-action" (click)="restoreTask()">
+    Restore postpone tasks
+  </button>
 </div>
 <ol class="card-container">
   <li
@@ -14,9 +16,19 @@
   >
     {{ i + 1 }} - {{ item.name }}
     <div class="btn-container">
-      <input type="button" [value]="doValue" (click)="isDoneTask(i)" />
-      <input type="button" value="Delete" (click)="deleteTask(i)" />
-      <input type="button" value="Postpone" (click)="postponeTask(i)" />
+      <input
+        class="btn"
+        type="button"
+        [value]="doValue"
+        (click)="isDoneTask(i)"
+      />
+      <input class="btn" type="button" value="Delete" (click)="deleteTask(i)" />
+      <input
+        class="btn"
+        type="button"
+        value="Postpone"
+        (click)="postponeTask(i)"
+      />
     </div>
   </li>
   <li
@@ -26,9 +38,19 @@
   >
     {{ i + 1 }} - {{ item.name }}
     <div class="btn-container">
-      <input type="button" [value]="doValue" (click)="isDoneTask(i)" />
-      <input type="button" value="Delete" (click)="deleteTask(i)" />
-      <input type="button" value="Postpone" (click)="postponeTask(i)" />
+      <input
+        class="btn"
+        type="button"
+        [value]="doValue"
+        (click)="isDoneTask(i)"
+      />
+      <input class="btn" type="button" value="Delete" (click)="deleteTask(i)" />
+      <input
+        class="btn"
+        type="button"
+        value="Postpone"
+        (click)="postponeTask(i)"
+      />
     </div>
   </li>
 </ol>
