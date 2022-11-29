@@ -11,12 +11,15 @@ export class TodoListComponent implements OnInit {
   toDosList: ToDoItem[] = []
   itemName: string;
   isCompleted: boolean;
+  savedItems: ToDoItem[] = []
 
   constructor() {
     this.itemName = '';
     this.isCompleted = false;
     this.toDosList.push(new ToDoItem("Clean the kitchen", false));
     this.toDosList.push(new ToDoItem("Buy food", false));
+    this.toDosList.push(new ToDoItem("Walk the dog", false));
+    this.toDosList.push(new ToDoItem("Mine code", false));
   }
 
   ngOnInit(): void { }
@@ -31,16 +34,23 @@ export class TodoListComponent implements OnInit {
     this.isCompleted = !this.isCompleted
   }
 
+  deleteCompleted() {
+    this.toDosList = this.toDosList.filter(el => el.completed === false)
+  }
+
   postpone(i: number) {
-    let savedItem = this.toDosList[i]
+    this.savedItems.push(new ToDoItem(this.toDosList[i].name, this.toDosList[i].completed))
     this.toDosList.splice(i, 1)
-    setTimeout(() => {
-      this.toDosList.splice(i, 0, new ToDoItem(savedItem.name, savedItem.completed));
-    }, 5000);
   }
 
   delete(i: number) {
     this.toDosList.splice(i, 1)
+  }
+
+  retrievePostponed() {
+    this.savedItems.forEach((el) => {
+      this.toDosList.push(new ToDoItem(el.name, el.completed))
+    })
   }
 }
 
