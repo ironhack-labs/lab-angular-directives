@@ -1,0 +1,33 @@
+<h1>To-do</h1>
+<label for="toDoTaskName">What do you need to do?</label>
+<input 
+    id = "toDoTaskName"
+    type="text" 
+    (keyup.enter)="addToDo()" 
+    placeholder="To do task"
+    [(ngModel)]="toDoName">
+
+<label for="toDoTime">How long should it take? (minutes)</label>
+<input
+    id="toDoTime"
+    type="number" 
+    (keyup.enter)="addToDo()" 
+    [(ngModel)]="toDoTime">
+
+<button (click)="addToDo()">Add task</button>
+<button (click)="removeCompleted()">Clean completed</button>
+<button (click)="retrievePosponed()">Bring back postponed</button>
+
+<ul>
+    <li
+        *ngFor="let task of toDoList; let i = index"
+        [ngClass]="{'done' : task.completed === true}"
+    >
+        {{i+1}}. <b>{{task.name}}</b>{{task.time}} mins
+        
+        <button (click)="postpone(i)">Postpone</button>
+        <button (click)="makeGreen(task)">Mask as completed</button>
+        <button (click)="remove(task)">Remove</button>
+
+    </li>
+</ul>
