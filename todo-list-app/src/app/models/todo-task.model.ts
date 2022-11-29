@@ -25,6 +25,5 @@ export class ToDoTask {
     set completed(completed: boolean) {
       this._completed = completed;
     }
-   
     
   }

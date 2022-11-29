@@ -28,11 +28,13 @@ export class TodoListComponent{
   }
 
   makeGreen(task : {completed:boolean}) : void {
-    if (task.completed === false ) {
-      task.completed = true;
-    } else {
-      task.completed = false;
-    }
-    
+    task.completed === false? task.completed = true : task.completed = false;
+  }
+
+  remove (task : {name:string}) : void {
+    console.log(this.toDoList)
+    console.log(task)
+    //This removes all tasks with the same name, it would be good to use a loop to remove just the first ocurrence, some id/idx system, etc to improve this functionality
+    this.toDoList = this.toDoList.filter(item => item.name !== task.name)
   }
 }
