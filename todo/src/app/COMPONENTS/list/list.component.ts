@@ -53,6 +53,14 @@ export class ListComponent implements OnInit{
     const indexTask=this.toDoList.indexOf(task);
     this.toDoList.splice(indexTask, 1)
    }
+   cleanAll(list: any): void{
+    for (let task of list){
+      if(task.isDone === true){
+        const indexTask=this.toDoList.indexOf(task);
+        this.toDoList.splice(indexTask, 1)
+      }
+    }
+   }
 
   ngOnInit(): void {}
 }
