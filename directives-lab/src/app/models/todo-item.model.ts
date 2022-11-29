@@ -1,17 +1,17 @@
 export class TodoItem {
+    // private todoNamr: string;
     // private isCompleted : boolean;
-    // private todo: string;
     // private isPostponed:boolean;
     
-    constructor(private _todo : string,private _isCompleted:boolean = false,private _isPostponed:boolean= false) {
+    constructor(private _todoName : string, private _isCompleted:boolean = false, private _isPostponed:boolean= false, private _isSelected = false) {
     }
  
-    get todo() : string {
-        return this._todo;
+    get todoName() : string {
+        return this._todoName;
     }
 
-    set todo(todo : string) {
-        this._todo = todo;
+    set todoName(todoName : string) {
+        this._todoName = todoName;
     }
 
     get isCompleted() : boolean {
@@ -28,6 +28,14 @@ export class TodoItem {
 
     set isPostponed(isPostponed : boolean) {
         this._isPostponed = isPostponed;
+    }
+
+    get isSelected() : boolean {
+        return this._isSelected;
+    }
+
+    set isSelected(isSelected : boolean) {
+        this._isSelected = isSelected;
     }
 
 
