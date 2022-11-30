@@ -1,28 +1,43 @@
 export class TodoItem {
   /* In this example we are using a shortcut from Typescript to create variables without declaring them */
-  constructor(private _name: string, private _isDone: boolean, private _isPostpone: boolean) {}
+  constructor(
+    private _name: string,
+    private _isDone: boolean,
+    private _isPostpone: boolean
+  ) {}
+
+  /* GET */
 
   get name(): string {
     return this._name;
-  }
-
-  set name(name: string) {
-    this._name = name;
   }
 
   get isDone(): boolean {
     return this._isDone;
   }
 
-  set isDone(isDone: boolean) {
-    this._isDone = isDone;
+  get isPostpone(): boolean {
+    return this._isPostpone;
   }
 
-  get isPostpone(): boolean {
-    return this.isPostpone;
+  /* SET */
+
+  set name(name: string) {
+    this._name = name;
+  }
+
+  set isDone(isDone: boolean) {
+    this._isDone = isDone;
+    console.log('SET isDone is clicked');
   }
 
   set isPostpone(isPostpone: boolean) {
-    this.isPostpone = isPostpone;
-  }  
+    this._isPostpone = isPostpone;
+    console.log('SET isPostpone is clicked');
+  }
+
+  /* set isPostpone(isPostpone: boolean) {
+    this._isPostpone = isPostpone;
+    console.log('Set isPostpone is clicked');
+  } */
 }

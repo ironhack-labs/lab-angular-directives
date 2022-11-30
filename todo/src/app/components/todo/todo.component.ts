@@ -8,45 +8,90 @@ import { TodoItem } from '../../models/todo-item.model';
 })
 export class TodoComponent implements OnInit {
   todoList: TodoItem[] = [];
+  todoPostone: TodoItem[] = [];
   itemName: string;
-  
-
-  ngOnInit(): void {}
+  todoIsDone: boolean;
+  todoIsPostpone: boolean; 
 
 
   constructor(){
-    this.itemName = "";    
+    this.itemName = "";  
+    this.todoIsDone = false;
+    this.todoIsPostpone = false;  
     this.todoList.push(new TodoItem("work", false, false));
-    this.todoList.push(new TodoItem("clean", false, false));
-    this.todoList.push(new TodoItem("sport", false, false));
+    
     
   }
 
   addTodoItem() {
-    const item = new TodoItem(this.itemName, false, false);
+    const item = new TodoItem(this.itemName, this.todoIsDone, this.todoIsPostpone);
     this.todoList.push(item);
-    this.itemName = "";    
-  }
+    this.itemName = "";
+    this.todoIsDone = false;
+    this.todoIsPostpone = false;    
+  }  
+  
 
-  addTodoDone(i: number) {   
+  addTodoDone(item: {isDone: boolean}): void {   
+    console.log("addTodoDone calling")
     
-    if(this.todoList[i].isDone === true){
-      this.todoList[i].isDone = false;
+    if(item.isDone === true){
+      item.isDone = false;
     }
     else {
-      this.todoList[i].isDone = true;
+      item.isDone = true;
     }   
     
   } 
 
-  addTodoPostpone(i: number){
-    if(this.todoList[i].isPostpone === true){
-      this.todoList[i].isPostpone === false;
-    }else {
-      this.todoList[i].isPostpone === true;
+  
+
+  addTodoPostpone(item: any,index:number): void {
+    console.log("addTodoPostpone calling")
+
+    if(item.isPostpone === true){
+      item.isPostpone = false;
+    } else {
+      item.isPostpone = true;
     }
+
+    this.todoPostone.push(item);
+    this.todoList.splice(index, 1);
+
+    //const notPostponed = this.todoList.filter((item)=> item.isPostpone === false)    
+    //this.todoList = notPostponed;    
+  } 
+
+  bringBackPostponed(): void {  
+       
+    for (const item of this.todoPostone){
+      item.isPostpone = false;
+      this.todoList.push(item);
+    }
+    this.todoPostone.splice(0);
+  }
+
+
+  deleteTodo(item: any): void {
+    console.log("deleteTodo calling")
+
+    const position = this.todoList.indexOf(item);
+    this.todoList.splice(position, 1)
   }
 
   
 
+  cleanCompleted(): void {    
+    const notCompleted = this.todoList.filter((item)=> item.isDone === false)
+    this.todoList = notCompleted;
+  } 
+
+  restoreCompleted(): void {
+    
+  }
+
+  
+
+  ngOnInit(): void {}
+ 
 }
