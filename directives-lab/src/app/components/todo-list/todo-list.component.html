@@ -1,0 +1,41 @@
+<!-- Bonus - Iteration 7 | Add an edit option if you like or work on the styling -->
+<h1>To do list</h1>
+
+<label for="add-new-todo">Add new todo</label>
+<br />
+<input type="text" (keydown.enter)="addTodo()" [(ngModel)]="todoName"/>
+
+<!-- Iteration 1 | Allow users to create new todos in the UI -->
+<button [disabled]="todoName === ''" (click)="addTodo()" (keyup.enter)="addTodo()">Add todo</button>
+
+<!-- Iteration 4 | Allow users to delete todos from the UI -->
+<button (click)="deleteAll()">Delete all</button>
+
+<!-- Iteration 5 | Add a clean button that will remove the completed todos -->
+<button (click)="removeCompleted()">Clean</button>
+
+<!-- Iteration 6 | Add a restore button that will bring back all the postponed todos -->
+<button (click)="restorePostponed()">Restore</button>
+
+
+<ul>
+  <div *ngFor="let item of todoList; let i = index">
+    <li 
+    [ngClass]="{'green': item.isCompleted === true}"
+    *ngIf="item.isPostponed === false"
+    >
+
+      <input type="checkbox" [(ngModel)]="item.isSelected" > 
+      {{ item.todoName }}
+
+      <!-- Iteration 2 | Allow users to mark todos as complete changing its color to green -->  
+      <button (click)="isCompleted(i)" [(ngModel)]="item.isCompleted">Completed</button>
+      
+      <!-- Iteration 3 | Allow users to mark todos as "postpone" which will temporarily remove them from the list -->
+      <button (click)="isPostponed(i)" [(ngModel)]="item.isPostponed">Postpone</button>
+
+      <!-- Iteration 4 | Allow users to delete todos from the UI -->
+      <button (click)="delete(i)">Delete</button>
+    </li>
+  </div>
+</ul>
