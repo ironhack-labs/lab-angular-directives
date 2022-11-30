@@ -1,0 +1,40 @@
+<h1>Do me</h1>
+<label for="toDoTaskName">What needs to be done?</label><br />
+<input
+  id="toDoTaskName"
+  type="text"
+  (keyup.enter)="addtask()"
+  placeholder="To do task"
+  [(ngModel)]="taskName"
+/>
+<br />
+<button (click)="addtask()">Add task</button>
+
+<div class="container">
+  <div class="fan-list" *ngIf="taskList.length">
+    <h3>Tasks</h3>
+    <ol>
+      <li
+        *ngFor="let task of taskList; let i = index"
+        [ngClass]="{ done: task.completed === true }"
+      >
+        {{ task.name }}
+
+        <button (click)="greenCompleteds(task)">Completed</button>
+        <button (click)="postponeBtn(i)">Postpone</button>
+        <button (click)="removeBtn(task)">Remove</button>
+      </li>
+    </ol>
+    <button (click)="removeCompleted()">Remove completed tasks</button>
+  </div>
+
+  <div class="fan-list" *ngIf="postponedTasks.length">
+    <ol>
+      <h3>Postponed</h3>
+      <li *ngFor="let task of postponedTasks; let i = index">
+        {{ task.name }}
+      </li>
+    </ol>
+    <button (click)="restorePosponed()">Restore postponed tasks</button>
+  </div>
+</div>
