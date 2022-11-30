@@ -1,0 +1,20 @@
+.doneItem {
+    color: rgb(75, 218, 75);
+    background-color:aliceblue;
+}
+
+
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table button {
+    display: flex;   
+    justify-items: center;
+    margin: auto;
+}
+
+.postPoneItem {
+    color: red;
+}

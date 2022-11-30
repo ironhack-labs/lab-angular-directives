@@ -1,0 +1,44 @@
+<h1>TO-DO List</h1>
+
+<label>Add New TO-DO Item</label> <br />
+
+<input
+  type="text"
+  (keyup.enter)="addTodoItem()"
+  placeholder="name"
+  [(ngModel)]="itemName"
+/>
+<button (click)="addTodoItem()">Add</button>
+
+
+
+<table>
+
+  <th>TO-DO Item</th>  
+  <th>Mark as Completed</th>
+  <th>Mark as Postpone</th>
+  <th>Delete TO-DO Item</th>
+
+  <tbody *ngFor="let item of todoList; let i = index" [ngClass]="{'doneItem post' : item.isDone === true}">
+
+    <tr>
+
+      <td>{{ item.name }}</td>      
+      <td> <Button (click)="addTodoDone(item)"> ✔️ </Button></td>
+
+      <td> <Button (click)="addTodoPostpone(item,i)"> ➡️ </Button></td>
+      
+
+      <td><Button (click)="deleteTodo(item)">❌</Button></td> 
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+<br>
+
+<button (click)="bringBackPostponed()" > Bring Back Postponed </button> <br>
+<Button (click)="cleanCompleted()">Clean Completed ITEMS</Button> <br>
+
