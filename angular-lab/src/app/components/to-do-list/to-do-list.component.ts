@@ -8,6 +8,7 @@ import { task } from 'src/app/models/task.model';
 })
 export class ToDoListComponent {
   taskList: task[] = [];
+  postponedTasks: task[] = [];
   taskName: string;
   taskTime: number;
   taskCompleted: boolean;
@@ -23,7 +24,11 @@ export class ToDoListComponent {
   }
 
   addtask() {
-    const newTask = new task(this.taskName, this.taskTime, this.taskCompleted);
+    const newTask = new task(
+      this.taskName,
+      this.taskCompleted,
+      this.taskPostponed
+    );
     this.taskList.push(newTask);
     this.taskName = '';
     this.taskTime = 0;
@@ -38,13 +43,19 @@ export class ToDoListComponent {
     this.taskList = this.taskList.filter((item) => item.name !== task.name);
   }
 
+  postponeBtn(i: number) {
+    this.postponedTasks.push(this.taskList.splice(i, 1)[0]);
+  }
+
   removeCompleted() {
     this.taskList = this.taskList.filter((item) => item.completed !== true);
     console.log(this);
   }
 
   restorePosponed() {
-    this.taskList = this.taskList.filter((item) => item.completed !== true);
-    console.log(this);
+    for (let i = 0; i < this.postponedTasks.length; i++) {
+      this.taskList.push(this.postponedTasks[i]);
+    }
+    this.postponedTasks = [];
   }
 }
