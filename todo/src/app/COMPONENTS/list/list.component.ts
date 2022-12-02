@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from "@angular/core";
+import { takeLast } from "rxjs";
 import { toDoItem } from "/IRONHACK/labs/lab-angular-todo/todo/src/app/MODELS/toDoitem.model";
 
 @Component({
@@ -30,21 +31,27 @@ export class ListComponent implements OnInit{
     this.toDoIsDone = false;
     this.toDoIsPostponed = false;
   }
-  updateTask(task: { isDone: boolean; }): void{
-    if(task.isDone === false){
+  updateTask(task: { isDone: boolean; isPostponed: boolean; }): void{
+    if(task.isDone === false && task.isPostponed === false){
       task.isDone = true;
+      console.log(task)
     }
     else{
       task.isDone = false;
     }
    }
-   postponeTask(task: { isPostponed: boolean; }): void{
+   postponeTask(task: { isPostponed: boolean; isDone: boolean}): void{
+    
     
     if(task.isPostponed === false){
       task.isPostponed = true;
+      task.isDone = false;
+      
+      
     
     }else{
       task.isPostponed = false;
+      task.isDone = false;
     }
    }
   
@@ -54,15 +61,18 @@ export class ListComponent implements OnInit{
     this.toDoList.splice(indexTask, 1)
    }
    cleanAll(): void{
-
-    const updatedList = this.toDoList.filter((task)=> task.isDone === false)
+    
+    
+    const updatedList = this.toDoList.filter((task: { isDone: boolean; })=> task.isDone === false)
+    
+    console.log(updatedList)
     this.toDoList = updatedList;
    }
 
    restoreAll(list: any): void{
     
     for(let task of list){
-      console.log(task)
+     
       if(task.isPostponed === true){
         task.isPostponed = false;
         task.isDone = false;
